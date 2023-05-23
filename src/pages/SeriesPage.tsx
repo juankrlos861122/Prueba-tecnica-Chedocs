@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import ImageCard from "@components/ImageCard";
 import NavTitle from "../components/NavTitle";
+import Pagination from "../components/Pagination";
 
 const SeriesPage = () => {
   const [series, setSeries] = useState([]);
@@ -29,18 +30,15 @@ const SeriesPage = () => {
   }, []);
 
   return (
-    <>
+    <main className="">
       <NavTitle title={"Series"} />
-      <main className="m-auto max-w-7xl ">
-        <div className="grid grid-cols-5 gap-4 my-10">
-          {series
-            .map((serie: [], index: number) => (
-              <ImageCard key={index} data={serie} />
-            ))
-            .slice(0, 20)}
-        </div>
-      </main>
-    </>
+      <div className="m-auto max-w-7xl grid grid-cols-5 gap-4 my-10">
+        {series
+          .map((serie: [], index: number) => <ImageCard key={index} data={serie} />)
+          .slice(0, 20)}
+      </div>
+      <Pagination max={series.length} />
+    </main>
   );
 };
 
