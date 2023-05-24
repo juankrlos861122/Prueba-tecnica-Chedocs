@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import ImageCard from "@components/ImageCard";
 import NavTitle from "../components/NavTitle";
 import Pagination from "../components/Pagination";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const SeriesPage = () => {
   const [series, setSeries] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function loadSeries() {
@@ -16,14 +18,15 @@ const SeriesPage = () => {
         );
         const seriesfiltered = data.entries;
         const seriesRes = seriesfiltered
-          .sort((a, b) => b.title < a.title)
+          .sort((a: any, b: any) => b.title < a.title)
           .filter(
             (info: any) => info.programType === "series" && info.releaseYear >= 2010
           );
-
+        setIsLoading(false);
         setSeries(seriesRes);
       } catch (err) {
-        console.error(err);
+        console.log("El error esta pasando por: ", err);
+        setIsLoading(true);
       }
     }
     loadSeries();
@@ -32,12 +35,20 @@ const SeriesPage = () => {
   return (
     <main className="">
       <NavTitle title={"Series"} />
-      <div className="m-auto max-w-7xl grid grid-cols-5 gap-4 my-10">
-        {series
-          .map((serie: [], index: number) => <ImageCard key={index} data={serie} />)
-          .slice(0, 20)}
-      </div>
-      <Pagination max={series.length} />
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          <div className="m-auto max-w-7xl grid grid-cols-5 gap-4 my-10">
+            {series
+              .map((serie: [], index: number) => (
+                <ImageCard key={index} data={serie} />
+              ))
+              .slice(0, 20)}
+          </div>
+          <Pagination max={series.length} />
+        </>
+      )}
     </main>
   );
 };

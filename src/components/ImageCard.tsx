@@ -1,8 +1,5 @@
 import {
   Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
   Card,
   CardMedia,
   CardContent,

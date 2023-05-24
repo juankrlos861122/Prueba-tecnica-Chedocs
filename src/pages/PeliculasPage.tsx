@@ -22,7 +22,6 @@ const PeliculasPage = () => {
             );
 
           setMovies(response);
-          console.log(response);
         })
         .catch((err) => {
           console.error(err);
