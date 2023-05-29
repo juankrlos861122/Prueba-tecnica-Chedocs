@@ -1,5 +1,3 @@
-import React from "react";
-
 const LoginPage = () => {
   return (
     <main className="flex justify-center items-center w-full h-[80vh]">

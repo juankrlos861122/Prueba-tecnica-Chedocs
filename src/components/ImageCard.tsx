@@ -46,7 +46,11 @@ const ImageCard: React.FC<Props> = ({ data }) => {
         <h3 className="font-bold uppercase text-center">{data.title}</h3>
       </div>
 
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog
+        open={open}
+        sx={{ backgroundColor: "rgb(128, 128, 128,0.7)" }}
+        onClose={handleClose}
+      >
         <Card sx={{ display: "flex", width: "100%" }}>
           <Box>
             <CardMedia

@@ -10,7 +10,7 @@ const PeliculasPage = () => {
     const loadMovies = async () => {
       await axios
         .get(
-          "https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed//sample.json"
+          "https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json"
         )
         .then(({ data }) => {
           const moviesfiltered = data.entries;

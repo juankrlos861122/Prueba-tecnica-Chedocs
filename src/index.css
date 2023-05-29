@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+main {
+  padding-block-end: 210px;
+}

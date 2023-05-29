@@ -8,7 +8,7 @@ import windowsStore from "@assets/store/windows-store.svg";
 
 const Footer = () => {
   return (
-    <footer className="p-6 bg-[#202020] w-full text-gray-400 mt-20">
+    <footer className="p-6 bg-[#202020] w-full text-gray-400 absolute bottom-0">
       <div className="m-auto max-w-7xl">
         <nav className="mb-3">
           Home | Terms and Conditions | Privacy Policy | Collection Statement | Help

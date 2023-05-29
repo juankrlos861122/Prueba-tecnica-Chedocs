@@ -1,7 +1,11 @@
 import * as React from "react";
 import TablePagination from "@mui/material/TablePagination";
 
-export default function Pagination({ max }) {
+interface Props {
+  max: number;
+}
+
+const Pagination: React.FC<Props> = ({ max }) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -10,6 +14,7 @@ export default function Pagination({ max }) {
     newPage: number
   ) => {
     setPage(newPage);
+    console.log(event);
   };
 
   const handleChangeRowsPerPage = (
@@ -30,4 +35,6 @@ export default function Pagination({ max }) {
       onRowsPerPageChange={handleChangeRowsPerPage}
     />
   );
-}
+};
+
+export default Pagination;
